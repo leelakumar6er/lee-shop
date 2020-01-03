@@ -1,0 +1,16 @@
+.cls-width{
+    width : 210px;
+}
+.thumbnail{
+    height: 80px;
+    width: 80px;
+    border-radius: 25%;
+    background-size: cover;
+}
+.v-center{
+    vertical-align: middle;
+}
+
+.m-15{
+    margin-right: 15px;
+}

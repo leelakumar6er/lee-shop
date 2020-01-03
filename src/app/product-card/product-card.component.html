@@ -1,0 +1,19 @@
+<div class="card" style="width: 15rem;">
+    <div class="card-image">
+        <a [routerLink]="['/product-view',product.$key]">
+            <img src="{{ product.imageUrl }}" class="card-img-top" alt="{{ product.title }}">
+        </a>
+    </div>
+    <div class="card-body">
+        <p class="card-title">{{ product.title }}</p>
+        <p class="card-text">{{ product.price | currency:'USD':'symbol'}}</p>
+    </div>
+    <div class="card-footer" *ngIf="showActions && shoppingCart">
+        <button *ngIf="shoppingCart.getQuantity(product) === 0; else updatedQty;" (click)="addToCart()"
+            class="btn btn-secondary btn-block">Add to cart</button>
+        <ng-template #updatedQty>
+            <product-quantity [product]="product" [shopping-cart]="shoppingCart"></product-quantity>
+        </ng-template>
+        <div></div>
+    </div>
+</div>

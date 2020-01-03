@@ -1,0 +1,39 @@
+<div class="col-10" *ngIf="cart$ | async as cart">
+    <h1>Shopping Cart({{ cart.totalItemsCount }})</h1>
+    <p>
+        <span *ngIf="!cart.items.length">You have no items in your shopping-cart!.</span>
+        <button *ngIf="cart.items.length" (click)="clearCart()" class="btn btn-light btn-sm">Clear Shopping
+            Cart!</button>
+    </p>
+
+    <table class="table" *ngIf="cart.items.length">
+        <thead>
+            <th></th>
+            <th>Product</th>
+            <th class="cls-width text-center">Quantity</th>
+            <th class="text-right cls-width">Price</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cart.items">
+                <td>
+                    <div [style.backgroundImage]="'url('+ item.imageUrl + ')'" class="thumbnail"></div>
+                </td>
+                <td class="v-center">{{ item.title }}</td>
+                <td class="text-center v-center">
+                    <product-quantity [product]="item" [shopping-cart]="cart"></product-quantity>
+                </td>
+                <td class="text-right v-center">{{ item.totalprice | currency:'USD':'symbol' }}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th class="text-right">{{ cart.totalPrice | currency:'USD':'symbol' }} </th>
+            </tr>
+        </tfoot>
+    </table>
+    <a *ngIf="cart.items.length" routerLink="/checkout" class="btn btn-primary btn-sm">Checkout!</a>
+
+</div>

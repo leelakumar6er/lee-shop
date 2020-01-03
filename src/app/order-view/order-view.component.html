@@ -1,0 +1,30 @@
+<div *ngIf="order">    
+    <span class="float-right"> Order placed on : {{ order.datePlaced | date:'d MMMM y' }} </span>
+    <br/>
+    
+    <h3>Order Items!</h3>
+    <table class="table" >
+        <tr>
+            <th>Item Name</th>
+            <th>Image</th>
+            <th>Qty</th>
+            <th>Price</th>
+        </tr>
+        <tr *ngFor="let item of order.items" >
+            <td class="v-center">{{ item.product.title }}</td>
+            <td class="v-center"><img src="{{ item.product.imageUrl }}" class="card-img-top" /></td>
+            <td class="v-center">{{ item.quantity }}</td>
+            <td class="v-center">{{ item.totalPrice | currency:'USD':'symbol' }}</td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td><b>Order total : </b> </td>
+            <td> {{ orderTotal | currency:'USD':'symbol' }} </td>
+        </tr> 
+    </table>
+    <span class="float-right"></span>
+    <!-- <b>Shipping Address : </b><br/>
+        {{ shipping.name }},{{ shipping.addressLine1 }},{{ shipping.addressLine1 }},{{ shipping.city }}.
+    <br/> -->
+</div>

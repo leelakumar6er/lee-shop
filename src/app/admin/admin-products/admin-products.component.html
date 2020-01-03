@@ -1,0 +1,33 @@
+<p>
+    <a routerLink="/admin/product/new" class="btn btn-primary">New Product</a>
+</p>
+<input #search (keyup)="filter(search.value)" type="text" class="form-control" placeholder="Search.." />
+
+<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+        <tr>
+        <tr>
+            <th>
+                <mfDefaultSorter by="title">Title</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="price">Price</mfDefaultSorter>
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of mf.data">
+            <td>{{item.title}}</td>
+            <td>{{item.price | currency:'USD':'symbol'}}</td>
+            <td><a [routerLink]="['/admin/products',item.$key]">Edit</a></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>

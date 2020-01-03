@@ -1,0 +1,17 @@
+.list-group{
+    list-style: none;
+}
+
+.list-group-items {
+    border:1px solid silver;
+    padding: 10px;
+}
+
+.active{
+    background-color: dodgerblue;
+    color: white;
+}
+
+.sticky-top{
+    top : 80px;
+}
