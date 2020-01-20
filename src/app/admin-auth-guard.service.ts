@@ -10,8 +10,19 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AdminAuthGuard implements CanActivate {
 
+  /**
+   *Creates an instance of AdminAuthGuard.
+   * @param {AuthService} auth
+   * @memberof AdminAuthGuard
+   */
   constructor(private auth: AuthService) { }
 
+  /**
+   *
+   *
+   * @returns {Observable<boolean>}
+   * @memberof AdminAuthGuard
+   */
   canActivate(): Observable<boolean> {
     return this.auth.AppUser$
       .map(appUser => appUser.isAdmin);

@@ -21,7 +21,7 @@ export class LoginComponent {
    *
    * @memberof LoginComponent
    */
-  login() {
+  login(): void {
     this.auth.login();
   }
 }

@@ -24,7 +24,7 @@ export class ShoppingCart {
      * @readonly
      * @memberof ShoppingCart
      */
-    get totalPrice() {
+    get totalPrice(): number {
         let sum = 0;
         for (let productId in this.items)
             sum += this.items[productId].totalprice;
@@ -38,7 +38,7 @@ export class ShoppingCart {
      * @returns
      * @memberof ShoppingCart
      */
-    getQuantity(product: IProduct) {
+    getQuantity(product: IProduct): number {
         let item = this.itemsMap[product.$key];
         return item ? item.quantity : 0;
     }
@@ -49,7 +49,7 @@ export class ShoppingCart {
      * @readonly
      * @memberof ShoppingCart
      */
-    get totalItemsCount() {
+    get totalItemsCount(): number {
         let count = 0;
         for (let productId in this.itemsMap) {
             count += this.itemsMap[productId].quantity;

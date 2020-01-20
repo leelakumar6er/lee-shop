@@ -25,7 +25,7 @@ export class ProductQuantityComponent {
    *
    * @memberof ProductQuantityComponent
    */
-  addToCart() {
+  addToCart(): void {
     this.cartService.addToCart(this.product);
   }
 
@@ -34,7 +34,7 @@ export class ProductQuantityComponent {
    *
    * @memberof ProductQuantityComponent
    */
-  removeFromCart() {
+  removeFromCart(): void {
     this.cartService.removeFromCart(this.product);
   }
 }

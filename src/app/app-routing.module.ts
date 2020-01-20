@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { AdminAuthGuard } from './admin-auth-guard.service';
 import { AuthGuard } from './auth-guard.service';
@@ -16,7 +17,7 @@ import { OrderViewComponent } from './order-view/order-view.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
-const routes: Routes = [{ path: '', component: ProductsComponent },
+const routes: Routes = [{ path: '', component: HomeComponent },
 { path: 'products', component: ProductsComponent },
 { path: 'product-view/:id', component: ProductViewComponent},
 { path: 'shopping-cart', component: ShoppingCartComponent },

@@ -1,4 +1,4 @@
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,9 +6,20 @@ import { Injectable } from '@angular/core';
 })
 export class CategoryService {
 
+  /**
+   *Creates an instance of CategoryService.
+   * @param {AngularFireDatabase} db
+   * @memberof CategoryService
+   */
   constructor(private db: AngularFireDatabase) { }
 
-  getAll() {
+  /**
+   *
+   *
+   * @returns {FirebaseListObservable<any[]>}
+   * @memberof CategoryService
+   */
+  getAll(): FirebaseListObservable<any[]> {
     return this.db.list('/categories', {
       query: {
         orderByChild: 'name'

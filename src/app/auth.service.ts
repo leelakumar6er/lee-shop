@@ -15,20 +15,46 @@ export class AuthService {
 
   user$: Observable<firebase.User>;
 
-  constructor(private userService: UserService, private afAuth: AngularFireAuth, private route: ActivatedRoute) {
+  /**
+   *Creates an instance of AuthService.
+   * @param {UserService} userService
+   * @param {AngularFireAuth} afAuth
+   * @param {ActivatedRoute} route
+   * @memberof AuthService
+   */
+  constructor(private userService: UserService,
+    private afAuth: AngularFireAuth,
+    private route: ActivatedRoute) {
     this.user$ = afAuth.authState;
   }
 
-  login() {
+  /**
+   *
+   *
+   * @memberof AuthService
+   */
+  login(): void {
     let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
   }
 
-  logout() {
+  /**
+   *
+   *
+   * @memberof AuthService
+   */
+  logout(): void {
     this.afAuth.auth.signOut();
   }
 
+  /**
+   *
+   *
+   * @readonly
+   * @type {Observable<AppUser>}
+   * @memberof AuthService
+   */
   get AppUser$(): Observable<AppUser> {
     return this.user$
       .switchMap(user => {
