@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./my-orders.component.css']
 })
 export class MyOrdersComponent {
-  
+
   orders$: Observable<any[]>;
 
   /**
@@ -22,6 +22,6 @@ export class MyOrdersComponent {
   constructor(
     private authService: AuthService,
     private orderService: OrderService) {
-      this.orders$ = this.authService.user$.switchMap(u => this.orderService.getOrdersByUser(u.uid));
+    this.orders$ = this.authService.user$.switchMap(u => this.orderService.getOrdersByUser(u.uid));
   }
 }

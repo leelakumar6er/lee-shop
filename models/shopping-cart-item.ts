@@ -5,11 +5,23 @@ export class ShoppingCartItem {
     price: number;
     quantity: number;
 
+    /**
+     *Creates an instance of ShoppingCartItem.
+     * @param {Partial<ShoppingCartItem>} [init]
+     * @memberof ShoppingCartItem
+     */
     constructor(init?: Partial<ShoppingCartItem>) {
         Object.assign(this, init);
     }
 
-    get totalprice() {
+    /**
+     *
+     *
+     * @readonly
+     * @type {number}
+     * @memberof ShoppingCartItem
+     */
+    get totalprice(): number {
         return this.price * this.quantity;
     }
 }

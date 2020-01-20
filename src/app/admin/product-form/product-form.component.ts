@@ -1,3 +1,4 @@
+import { IProduct } from './../../../../models/product.interface';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from './../../product.service';
 import { CategoryService } from './../../category.service';
@@ -11,7 +12,7 @@ import 'rxjs/add/operator/take';
 })
 export class ProductFormComponent {
 
-  categories$;
+  categories$: any;
   product: any = {};
   id: string;
 
@@ -39,7 +40,7 @@ export class ProductFormComponent {
    * @param {*} product
    * @memberof ProductFormComponent
    */
-  save(product: any) {
+  save(product: IProduct): any {
     if (this.id) {
       this.productService.update(this.id, product);
     } else {
@@ -54,7 +55,7 @@ export class ProductFormComponent {
    * @returns
    * @memberof ProductFormComponent
    */
-  delete() {
+  delete(): any {
     if (!confirm('Are you sure you want to delete this product?')) return;
     this.productService.delete(this.id);
     this.route.navigate(['/admin/products']);

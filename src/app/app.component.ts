@@ -10,9 +10,16 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  
+
   title = 'lee-shop';
 
+  /**
+   *Creates an instance of AppComponent.
+   * @param {UserService} userService
+   * @param {AuthService} auth
+   * @param {Router} route
+   * @memberof AppComponent
+   */
   constructor(private userService: UserService, private auth: AuthService, private route: Router) {
     this.auth.user$.subscribe(user => {
 

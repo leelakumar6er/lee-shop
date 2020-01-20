@@ -11,7 +11,7 @@ import { ShoppingCart } from 'models/shopping-cart';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  appUser : AppUser;
+  appUser: AppUser;
   cart$: Observable<ShoppingCart>;
 
   /**
@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
    * @param {ShoppingCartService} cartService
    * @memberof NavbarComponent
    */
-  constructor(private auth : AuthService,private cartService:ShoppingCartService) { }
+  constructor(private auth: AuthService, private cartService: ShoppingCartService) { }
 
   /**
    *
@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
    *
    * @memberof NavbarComponent
    */
-  logout(){
+  logout(): void {
     this.auth.logout();
   }
 

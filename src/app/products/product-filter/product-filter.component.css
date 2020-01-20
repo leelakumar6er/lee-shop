@@ -5,6 +5,7 @@
 .list-group-items {
     border:1px solid silver;
     padding: 10px;
+    border-radius: 10px;
 }
 
 .active{

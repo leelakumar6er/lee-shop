@@ -36,7 +36,7 @@ export class OrderViewComponent {
    * @returns sum
    * @memberof OrderViewComponent
    */
-  getTotalOrderPrice() {
+  getTotalOrderPrice():number {
     let sum = 0;
     for (let index in this.order.items) {
       sum += this.order.items[index].totalPrice;

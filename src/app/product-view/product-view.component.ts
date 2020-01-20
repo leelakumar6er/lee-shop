@@ -20,6 +20,13 @@ export class ProductViewComponent implements OnInit {
   showActions: boolean = true;
   cart$: Observable<ShoppingCart>;
 
+  /**
+   *Creates an instance of ProductViewComponent.
+   * @param {ActivatedRoute} actRoute
+   * @param {ShoppingCartService} cartService
+   * @param {ProductService} productService
+   * @memberof ProductViewComponent
+   */
   constructor(
     private actRoute: ActivatedRoute,
     private cartService: ShoppingCartService,
@@ -30,14 +37,29 @@ export class ProductViewComponent implements OnInit {
     });
   }
 
-  addToCart() {
+  /**
+   *
+   *
+   * @memberof ProductViewComponent
+   */
+  addToCart(): void {
     this.cartService.addToCart(this.product);
   }
 
-  removeFromCart() {
+  /**
+   *
+   *
+   * @memberof ProductViewComponent
+   */
+  removeFromCart(): void {
     this.cartService.removeFromCart(this.product);
   }
 
+  /**
+   *
+   *
+   * @memberof ProductViewComponent
+   */
   async ngOnInit() {
     this.cart$ = (await this.cartService.getCart());
   }

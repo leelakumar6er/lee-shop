@@ -27,7 +27,7 @@ export class ProductCardComponent {
    *
    * @memberof ProductCardComponent
    */
-  addToCart() {
+  addToCart(): void {
     this.cartService.addToCart(this.product);
   }
 

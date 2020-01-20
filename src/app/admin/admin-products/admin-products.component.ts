@@ -31,7 +31,7 @@ export class AdminProductsComponent implements OnDestroy {
    * @param {string} query
    * @memberof AdminProductsComponent
    */
-  filter(query: string) {
+  filter(query: string): void {
     this.data = (query.toLowerCase()) ? this.products.filter(p => p.title.toLowerCase().includes(query)) : this.products;
   }
 
